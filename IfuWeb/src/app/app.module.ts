@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { SingUpComponent } from './sing-up/sing-up.component';
+import { UserService } from './shared/user.service';
+import { HttpClientModule } from '../../node_modules/@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,9 +14,10 @@ import { SingUpComponent } from './sing-up/sing-up.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
