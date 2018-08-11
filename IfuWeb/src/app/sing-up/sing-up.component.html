@@ -4,7 +4,7 @@
       <div class="sm-jumbotrom center">
         <H2> User Registration</H2>
       </div>
-      <form class="col s12 white" #userRegistratioForm = "ngForm">
+      <form class="col s12 white" #userRegistrationForm = "ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
         <div class="row">
           <div class="input-field col s6">
             <input class="validate" type="text" name="UserName" #UserName="ngModel" [(ngModel)]="user.UserName" required>
