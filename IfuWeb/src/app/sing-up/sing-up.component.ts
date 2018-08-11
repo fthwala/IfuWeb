@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { user } from '../shared/user.model';
 import { NgForm } from '@angular/forms';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-sing-up',
@@ -10,7 +11,7 @@ import { NgForm } from '@angular/forms';
 export class SingUpComponent implements OnInit {
   user : user;
 
-  constructor() { }
+  constructor(private userService : UserService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -26,5 +27,12 @@ export class SingUpComponent implements OnInit {
       FirstName : '',
       LastName : ''
     }
+  }
+  OnSubmit(form : NgForm){
+    this.userService.registerUser(form.value)
+    .subscribe((data:any) => {
+      if (data.Succeeded == true)
+        this.resetForm(form);
+    });
   }
 }
